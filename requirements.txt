@@ -10,3 +10,5 @@ python-pptx          # required by UnstructuredPowerPointLoader
 python-docx          # required by UnstructuredWordDocumentLoader
 unstructured         # general unstructured file handling
 pdfminer.six         # dependency for some loaders
+faiss-gpu
+faiss-cpu
