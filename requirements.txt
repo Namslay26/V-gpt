@@ -1,0 +1,11 @@
+streamlit
+langchain
+google-genai
+sentence-transformers
+chromadb
+tiktoken
+PyMuPDF              # for PDF parsing
+python-pptx          # required by UnstructuredPowerPointLoader
+python-docx          # required by UnstructuredWordDocumentLoader
+unstructured         # general unstructured file handling
+pdfminer.six         # dependency for some loaders
