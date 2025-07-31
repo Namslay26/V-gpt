@@ -1,6 +1,6 @@
 import streamlit as st
 from google import genai
-from langchain_community.vectorstores import Chroma
+from langchain_community.vectorstores import FAISS
 from langchain_community.embeddings import HuggingFaceEmbeddings
 from langchain_community.document_loaders import TextLoader, PyMuPDFLoader, UnstructuredPowerPointLoader, UnstructuredWordDocumentLoader
 from langchain.text_splitter import RecursiveCharacterTextSplitter
@@ -28,8 +28,7 @@ text_splitter = RecursiveCharacterTextSplitter(chunk_size=500, chunk_overlap=50)
 documents = text_splitter.split_documents(docs)
 
 # --- Create vector DB ---
-vectordb = Chroma.from_documents(documents, embedding=embedding_model, persist_directory="db")
-vectordb.persist()
+vectordb = FAISS.from_documents(documents, embedding=embedding_model)
 retriever = vectordb.as_retriever()
 
 # --- Ask Gemini ---
